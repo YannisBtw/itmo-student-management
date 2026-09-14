@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+}
+
+h1 {
+    margin-bottom: 24px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #cccccc;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.add-button {
+    display: inline-block;
+    padding: 0.625rem 1rem;
+    background-color: #eeeeee;
+    color: #000000;
+    border: 1px solid #cccccc;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+button {
+    cursor: pointer;
+}
+
+form {
+    width: 100%;
+    max-width: 37.5rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    margin-bottom: 1rem;
+}
+
+.form-field input:not([type="checkbox"]),
+.form-field textarea {
+    padding: 0.625rem;
+    border: 1px solid #cccccc;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+}
+
+.form-field textarea {
+    min-height: 6.25rem;
+    resize: vertical;
+}
+
+form button {
+    padding: 0.625rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+}
+
+.student-details {
+    width: 100%;
+    max-width: 37.5rem;
+
+    border: 1px solid #cccccc;
+    border-radius: 0.5rem;
+
+    overflow: hidden;
+}
+
+.detail-item {
+    display: flex;
+    gap: 1rem;
+
+    padding: 1rem;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    width: 40%;
+    font-weight: bold;
+}
+
+.detail-value {
+    width: 60%;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 2.5rem;
+    overflow-x: hidden;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 50rem;
+    border-collapse: collapse;
+}
