@@ -12,22 +12,36 @@ const notesInput = document.getElementById("notes");
 
 const today = new Date();
 
-const todayString = today.getFullYear() + "-" + String(today.getMonth() + 1).padStart(2, "0") + "-" + String(today.getDate()).padStart(2, "0");
+const todayString = today.getFullYear() + "-" + String(today.getMonth() + 1).padStart(2, "0") + "-" +
+    String(today.getDate()).padStart(2, "0");
 
 moveInDateInput.max = todayString;
 
 
 function validateFullName() {
     const fullName = fullNameInput.value.trim();
+    const nameParts = fullName.split(/\s+/);
 
-    if (fullName.length > 0 && fullName.length < 3) {
-        fullNameInput.setCustomValidity("ФИО должно содержать минимум 3 символа");
+    if (nameParts.length < 2 || nameParts.some(part => part.length < 2)) {
+        fullNameInput.setCustomValidity("ФИО должно содержать минимум 2 отдельных слова и длина" +
+            " каждого должна составлять не менее 2 символов");
     } else {
         fullNameInput.setCustomValidity("");
     }
 }
 
+async function isIsuIdUnique(isuId, currentStudentId) {
+    const students = await getAllStudents();
+
+    return !students.some(function (student) {
+        return Number(student.isuId) === isuId
+            && student.id !== currentStudentId;
+    });
+}
+
 fullNameInput.addEventListener("input", validateFullName);
+
+isuIdInput.addEventListener("input", function () {isuIdInput.setCustomValidity("")});
 
 
 studentForm.addEventListener("submit", async function (event) {
@@ -39,6 +53,19 @@ studentForm.addEventListener("submit", async function (event) {
         studentForm.reportValidity();
         return;
     }
+
+    const isuId = isuIdInput.valueAsNumber;
+
+    const uniqueIsuId = await isIsuIdUnique(isuId, studentId);
+
+    if (!uniqueIsuId) {
+        isuIdInput.setCustomValidity("Студент с таким ИСУ ID уже существует");
+        isuIdInput.reportValidity();
+        return;
+    }
+
+    isuIdInput.setCustomValidity("");
+
 
     const student = {
         fullName: fullNameInput.value.trim(),

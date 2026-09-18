@@ -47,6 +47,7 @@ function createDetailItem(label, value) {
     return item;
 }
 
+loadStudentDetails();
 
 function showStudentDetails(student) {
     studentDetails.textContent = "";
@@ -100,4 +101,3 @@ function showStudentDetails(student) {
 }
 
 
-loadStudentDetails();

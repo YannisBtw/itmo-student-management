@@ -1,6 +1,17 @@
 const studentsTableBody = document.getElementById("studentsTableBody");
 
 
+function formatDate(dateString) {
+    const parts = dateString.split("-");
+
+    const year = parts[0];
+    const month = parts[1];
+    const day = parts[2];
+
+    return day + "." + month + "." + year;
+}
+
+
 async function loadStudents() {
     try {
         const students = await getAllStudents();
@@ -32,8 +43,7 @@ async function loadStudents() {
 
 
             const moveInDateCell = document.createElement("td");
-            moveInDateCell.textContent = student.moveInDate;
-
+            moveInDateCell.textContent = formatDate(student.moveInDate);
 
             const actionsCell = document.createElement("td");
 
@@ -45,8 +55,7 @@ async function loadStudents() {
             detailsButton.textContent = "Подробнее";
 
             detailsButton.addEventListener("click", function () {
-                window.location.href =
-                    "student-details.html?id=" + student.id;
+                window.location.href = "student-details.html?id=" + student.id;
             });
 
 
@@ -54,8 +63,7 @@ async function loadStudents() {
             editButton.textContent = "Редактировать";
 
             editButton.addEventListener("click", function () {
-                window.location.href =
-                    "student-form.html?id=" + student.id;
+                window.location.href = "student-form.html?id=" + student.id;
             });
 
 

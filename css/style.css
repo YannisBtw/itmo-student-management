@@ -89,7 +89,6 @@ form button {
 
 .student-details {
     width: 100%;
-    max-width: 37.5rem;
     border: 1px solid #cccccc;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -100,10 +99,23 @@ form button {
     gap: 1rem;
     padding: 1rem;
     border-bottom: 1px solid #eeeeee;
+    align-items: flex-start;
 }
 
 .detail-item:last-child {
     border-bottom: none;
+}
+
+.detail-label {
+    width: 20%;
+    min-width: 10rem;
+    font-weight: bold;
+}
+
+.detail-value {
+    width: 80%;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
 }
 
 .detail-label {

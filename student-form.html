@@ -37,8 +37,8 @@
                     type="text"
                     id="group"
                     name="group"
-                    pattern="[A-Z][0-9]{4}"
-                    title="Одна заглавная латинская буква и четыре цифры"
+                    pattern="[A-Z][1-9][1-4][0-9]{2}"
+                    title="Одна заглавная латинская буква, затем цифра 1–9, цифра 1–4 и ещё две любые цифры"
                     required
             >
         </div>
@@ -85,6 +85,7 @@
                     type="date"
                     id="moveInDate"
                     name="moveInDate"
+                    min="1990-01-01"
                     required
             >
         </div>
